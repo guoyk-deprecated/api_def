@@ -1,4 +1,5 @@
 require 'erb'
+require 'json'
 
 class ApiDef::Template::Markdown < ApiDef::Template
   TEMPLATE_FILE= %{
@@ -16,9 +17,8 @@ class ApiDef::Template::Markdown < ApiDef::Template
 
 #### <%= entry.path %> [<%= entry.method.to_s.upcase %>]
       <% entry.requests.each do |request| -%>
-        <% if entry.requests.count > 1 -%>
 
-##### Request: <%= request.name %>
+##### Request <%= request.name %>
 
 <%= request.desc %>
 
@@ -26,7 +26,17 @@ class ApiDef::Template::Markdown < ApiDef::Template
 + `<%= param.name %>`, <%= param.type %>, <%="Optional, " if param.optional%><%= param.desc %>
 <% end -%>
 
-        <% end -%>
+      <% end -%>
+
+      <% entry.responses.each do |response| -%>
+
+##### Response <%= response.name %>
+
+<%= response.desc %>
+
+```json
+<%= JSON.pretty_generate(response.body) %>
+```
       <% end -%>
     <% end -%>
   <% end -%>

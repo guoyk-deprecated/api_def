@@ -12,7 +12,7 @@ module ApiDef::Support::AttrUnoArray
         self.attr_array store
         self.class_eval <<-EOF
 
-        def #{name}(value, opts = {})
+        def #{name}(value = nil, opts = {})
           obj = #{clazz}.new(value, opts)
           yield obj if block_given?
           self.#{store} << obj

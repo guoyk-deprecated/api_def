@@ -17,5 +17,11 @@ group "店铺查询" do |g|
     e.request "Case 2" do |p|
       p.desc "aaaabb"
     end
+
+    e.response do |r|
+      r.body do |j|
+        j.aaa 'aaa'
+      end
+    end
   end
 end
