@@ -6,13 +6,20 @@ module ApiDef
 
   # Specification and DSL
   autoload :Specification,  'api_def/specification'
-  autoload :DSL,            'api_def/dsl'
 
   # ApiDef models
+  autoload :Element,  'api_def/element'
+
   autoload :Group,    'api_def/group'
   autoload :Entry,    'api_def/entry'
   autoload :Pattern,  'api_def/pattern'
   autoload :Request,  'api_def/request'
   autoload :Parameter,'api_def/parameter'
   autoload :Response, 'api_def/response'
+
+  # Supports
+  module Support
+    autoload :AttrUno,  'api_def/support/attr_uno'
+    autoload :AttrArray,'api_def/support/attr_array'
+  end
 end
