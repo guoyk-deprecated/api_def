@@ -1,2 +1,2 @@
-class ApiDef::Parameter
+class ApiDef::Parameter < ApiDef::Element
 end

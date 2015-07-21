@@ -1,6 +1,7 @@
 class ApiDef::Element
   include ApiDef::Support::AttrUno
   include ApiDef::Support::AttrArray
+  include ApiDef::Support::AttrUnoArray
 
   attr_uno :name, :desc
 

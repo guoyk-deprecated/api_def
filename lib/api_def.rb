@@ -19,7 +19,8 @@ module ApiDef
 
   # Supports
   module Support
-    autoload :AttrUno,  'api_def/support/attr_uno'
-    autoload :AttrArray,'api_def/support/attr_array'
+    autoload :AttrUno,        'api_def/support/attr_uno'
+    autoload :AttrUnoArray,   'api_def/support/attr_uno_array'
+    autoload :AttrArray,      'api_def/support/attr_array'
   end
 end
