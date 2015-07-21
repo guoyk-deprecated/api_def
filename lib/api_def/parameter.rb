@@ -1,0 +1,2 @@
+class ApiDef::Parameter
+end
