@@ -6,6 +6,12 @@ class ApiDef::Template::Markdown < ApiDef::Template
 # <%= spec.name %>
 # <%= spec.version %>
 
+<% spec.elements.each do |ele| -%>
+## <%= ele.name %>
+
+<%= ele.desc %>
+<% end -%>
+
 <% spec.groups.each do |group| -%>
 ## <%= group.name %>
 

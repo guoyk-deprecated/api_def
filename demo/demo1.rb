@@ -1,6 +1,10 @@
 name    "YMXian"
 version "v3.0"
 
+element "AAA" do |e|
+  e.desc %{fdasfdsfdsafdsa}
+end
+
 group "店铺查询" do |g|
   g.desc "用来查询店铺的API"
 
