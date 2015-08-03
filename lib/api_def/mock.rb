@@ -5,7 +5,6 @@ class ApiDef::Mock
   def self.create_application(spec)
     Class.new(Sinatra::Base) do
       configure do
-        set :public_folder, File.expand_path("../../public", __FILE__)
         disable :protection
         settings.add_charset << "application/json"
       end

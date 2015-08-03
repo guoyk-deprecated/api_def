@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description = "Ruby DSL based API definition tool."
   s.authors     = ["YANKE Guo"]
   s.email       = 'me@yanke.io'
-  s.files         = Dir["lib/**/*.rb", "public/**/*"]
+  s.files         = Dir["lib/**/*.rb"]
   s.executables   = ["api_def"]
   s.require_paths = ["lib"]
   s.homepage      = 'http://rubygems.org/gems/api_def'
