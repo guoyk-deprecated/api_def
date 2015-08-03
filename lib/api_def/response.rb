@@ -5,7 +5,7 @@ class ApiDef::Response < ApiDef::Element
 
   def body(&block)
     if block
-      @body = Jbuilder.new(&block)
+      @body = Jbuilder.new(&block).attributes!
     else
       @body
     end

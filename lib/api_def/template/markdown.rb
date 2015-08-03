@@ -21,7 +21,7 @@ class ApiDef::Template::Markdown < ApiDef::Template
 
 <%= entry.desc %>
 
-#### <%= entry.path %> [<%= entry.method.to_s.upcase %>]
+#### `<%= entry.path %>` [<%= entry.method.to_s.upcase %>]
       <% entry.requests.each do |request| -%>
 
 ##### Request <%= request.name %>
@@ -41,7 +41,7 @@ class ApiDef::Template::Markdown < ApiDef::Template
 <%= response.desc %>
 
 ```json
-<%= JSON.pretty_generate(response.body.attributes!) %>
+<%= JSON.pretty_generate(response.body) %>
 ```
       <% end -%>
     <% end -%>

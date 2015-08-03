@@ -3,7 +3,7 @@ class ApiDef::Template
   autoload :Html,     'api_def/template/html'
 
   def self.find(name)
-    case name
+    case name.to_s
     when 'html'
       ApiDef::Template::Html
     when 'markdown'
