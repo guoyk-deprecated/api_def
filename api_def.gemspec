@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'thor',  '~> 0.19'
   s.add_runtime_dependency 'jbuilder', '~> 2.3.1'
+  s.add_runtime_dependency 'sinatra',  '~> 1.4.6'
 end

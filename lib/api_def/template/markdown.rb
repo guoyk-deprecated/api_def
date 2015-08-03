@@ -41,7 +41,7 @@ class ApiDef::Template::Markdown < ApiDef::Template
 <%= response.desc %>
 
 ```json
-<%= JSON.pretty_generate(response.body) %>
+<%= JSON.pretty_generate(response.body.attributes!) %>
 ```
       <% end -%>
     <% end -%>

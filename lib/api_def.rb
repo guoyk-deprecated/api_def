@@ -16,6 +16,9 @@ module ApiDef
   autoload :Parameter,'api_def/parameter'
   autoload :Response, 'api_def/response'
 
+  # Mock Server
+  autoload :Mock,     'api_def/mock'
+
   # Supports
   module Support
     autoload :AttrUno,        'api_def/support/attr_uno'
