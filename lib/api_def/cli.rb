@@ -7,7 +7,7 @@ class ApiDef::CLI < Thor
     default: 'markdown',
     required: true,
     type: :string,
-    enum: ['markdown', 'html'],
+    enum: ApiDef::Template.supported_templates,
     desc: 'Output template'
   }
   def build(file)
