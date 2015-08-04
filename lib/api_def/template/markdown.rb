@@ -13,7 +13,7 @@ class ApiDef::Template::Markdown < ApiDef::Template
 <%= ele.desc %>
 <% end -%>
 
-<% spec.groups.each do |group| -%>
+<% spec.groups.each do |group|  %>
 ## <%= group.name %>
 
 <%= group.desc %>
