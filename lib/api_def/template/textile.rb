@@ -22,7 +22,7 @@ h3. <%= entry.name %>
 
 <%= entry.desc %>
 
-h4. @<%= entry.method.to_s.upcase %>@ @<%= entry.path %>@ 
+h4. @<%= entry.method.to_s.upcase %>@ @<%= entry.path %>@
       <% entry.requests.each do |request| -%>
 
 h4. Request <%= request.name %>
@@ -30,7 +30,7 @@ h4. Request <%= request.name %>
 <%= request.desc %>
 
 <% request.params.each do |param| -%>
-* @<%= param.name %>@, <%= param.type %>, <%="Optional, " if param.optional%><%= param.desc %>
+* @<%= param.name %>@<%= " = @" + param.value.to_s + "@" if param.value %><%= ", " + param.type.to_s if param.type %><%=", Optional" if param.optional %><%= ", " + param.desc.to_s if param.desc %>
 <% end -%>
 
       <% end -%>

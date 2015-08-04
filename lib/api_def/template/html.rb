@@ -19,6 +19,7 @@ class ApiDef::Template::Html < ApiDef::Template
       <title>#{spec.name}</title>
       <style>
       body {
+        font-family: sans-serif;
         min-width: 200px;
         max-width: 790px;
         margin: 0 auto;

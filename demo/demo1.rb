@@ -16,6 +16,8 @@ group "店铺查询" do |g|
     e.request "Case 1" do |p|
       p.desc "aaaabb"
       p.param "token", optional: true, desc: '用户token', type: 'String'
+      p.param "token2", value: :aaa
+      p.param "token3", optional: false, desc: 'dsafads'
     end
 
     e.request "Case 2" do |p|

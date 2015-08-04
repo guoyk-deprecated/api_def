@@ -32,7 +32,7 @@ h4. Request <%= request.name %>
 <%= request.desc %>
 
 <% request.params.each do |param| -%>
-* {{<%= param.name %>}}, <%= param.type %>, <%="Optional, " if param.optional%><%= param.desc %>
+* {{<%= param.name %>}}<%= " = {{" + param.value.to_s "}}" if param.value %><%= ", " + param.type.to_s if param.type %><%=", Optional" if param.optional %><%= ", " + param.desc.to_s if param.desc %>
 <% end -%>
 
       <% end -%>

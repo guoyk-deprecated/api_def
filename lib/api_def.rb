@@ -1,5 +1,5 @@
 module ApiDef
-  VERSION="1.0.1"
+  VERSION="1.0.2"
   # CLI
   autoload :CLI,      'api_def/cli'
   autoload :Template, 'api_def/template'
