@@ -22,7 +22,7 @@ h3. <%= entry.name %>
 
 <%= entry.desc %>
 
-h4. @<%= entry.path %>@ @[<%= entry.method.to_s.upcase %>]@
+h4. @<%= entry.method.to_s.upcase %>@ @<%= entry.path %>@ 
       <% entry.requests.each do |request| -%>
 
 h4. Request <%= request.name %>

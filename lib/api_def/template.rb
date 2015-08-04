@@ -1,21 +1,12 @@
 class ApiDef::Template
-  autoload :Markdown, 'api_def/template/markdown'
-  autoload :Html,     'api_def/template/html'
-  autoload :Textile,  'api_def/template/textile'
+  SUPPORTED_TEMPLATES = ['html', 'markdown', 'textile', 'confluence']
 
-  def self.supported_templates
-    ['html', 'markdown', 'textile']
+  SUPPORTED_TEMPLATES.each do |tpl|
+    self.autoload tpl.capitalize.to_sym, "api_def/template/#{tpl}"
   end
 
   def self.find(name)
-    case name.to_s
-    when 'html'
-      ApiDef::Template::Html
-    when 'markdown'
-      ApiDef::Template::Markdown
-    when 'textile'
-      ApiDef::Template::Textile
-    end
+    self.const_get name.capitalize
   end
 
   def render(spec)

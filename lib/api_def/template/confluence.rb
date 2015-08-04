@@ -1,49 +1,52 @@
 require 'erb'
 require 'json'
 
-class ApiDef::Template::Markdown < ApiDef::Template
+class ApiDef::Template::Confluence < ApiDef::Template
   TEMPLATE_FILE= %{
-# <%= spec.name %>
+h1. <%= spec.name %>
 
-# <%= spec.version %>
+h1. <%= spec.version %>
 
 <% spec.elements.each do |ele| -%>
-## <%= ele.name %>
+h2. <%= ele.name %>
 
 <%= ele.desc %>
 <% end -%>
 
 <% spec.groups.each do |group| -%>
-## <%= group.name %>
+h2. <%= group.name %>
+----
 
 <%= group.desc %>
     <% group.entries.each do |entry| %>
-### <%= entry.name %>
+h3. <%= entry.name %>
+----
 
 <%= entry.desc %>
 
-#### `<%= entry.method.to_s.upcase %>` `<%= entry.path %>` 
+h4. {{<%= entry.method.to_s.upcase %>}} {{<%= entry.path %>}}
       <% entry.requests.each do |request| -%>
 
-#### Request <%= request.name %>
+h4. Request <%= request.name %>
 
 <%= request.desc %>
 
 <% request.params.each do |param| -%>
-+ `<%= param.name %>`, <%= param.type %>, <%="Optional, " if param.optional%><%= param.desc %>
+* {{<%= param.name %>}}, <%= param.type %>, <%="Optional, " if param.optional%><%= param.desc %>
 <% end -%>
 
       <% end -%>
 
       <% entry.responses.each do |response| -%>
 
-#### Response <%= response.name %>
+h4. Response <%= response.name %>
 
 <%= response.desc %>
 
-```json
+{code:language=javascript}
 <%= JSON.pretty_generate(response.body) %>
-```
+{code}
+
       <% end -%>
     <% end -%>
   <% end -%>
