@@ -32,9 +32,17 @@ class ApiDef::CLI < Thor
 
   private
   def load_spec(file)
-    content = File.open(file).read.to_s
+    files = Dir[file]
     spec = ApiDef::Specification.new
-    spec.instance_eval content, file
+    files.each do |file|
+      content = File.open(file).read.to_s
+      spec.instance_eval content, file
+    end
+    if files.count > 1
+      spec.name ""
+      spec.version ""
+    end
+    spec
   end
 
 end
