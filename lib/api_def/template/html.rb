@@ -15,7 +15,7 @@ class ApiDef::Template::Html < ApiDef::Template
       <html>
       <head>
       <meta name="content-type" content="text/html;charset=utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>#{spec.name}</title>
       <style>
       body {
@@ -24,6 +24,21 @@ class ApiDef::Template::Html < ApiDef::Template
         max-width: 790px;
         margin: 0 auto;
         padding: 30px;
+      }
+      pre {
+        color: white;
+        background-color: black;
+        background-clip: padding-box;
+        border-radius: 4px;
+        padding: 6px;
+      }
+      code {
+        color: white;
+        background-color: black;
+        background-clip: padding-box;
+        border-radius: 4px;
+        padding-left: 2px;
+        padding-right:2px;
       }
       </style>
       </head>

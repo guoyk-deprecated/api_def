@@ -17,9 +17,16 @@ class ApiDef::CLI < Thor
   end
 
   desc "mock FILE", "start a mock server for FILE"
+  option :port, {
+    aliases: '-p',
+    default: '3000',
+    required: true,
+    type: :string,
+    desc: 'Port for mock server'
+  }
   def mock(file)
     spec = load_spec file
-    app  = ApiDef::Mock.create_application spec
+    app  = ApiDef::Mock.create_application spec, options[:port]
     app.run!
   end
 

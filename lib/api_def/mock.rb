@@ -2,9 +2,10 @@ require 'sinatra/base'
 
 class ApiDef::Mock
 
-  def self.create_application(spec)
+  def self.create_application(spec, port)
     Class.new(Sinatra::Base) do
       configure do
+        set     :port, port
         disable :protection
         settings.add_charset << "application/json"
       end
