@@ -1,3 +1,4 @@
+require 'json'
 require 'sinatra/base'
 
 class ApiDef::Mock
@@ -5,6 +6,7 @@ class ApiDef::Mock
   def self.create_application(spec, port)
     Class.new(Sinatra::Base) do
       configure do
+        set     :bind, '0.0.0.0'
         set     :port, port
         disable :protection
         settings.add_charset << "application/json"
@@ -22,7 +24,7 @@ class ApiDef::Mock
       spec.groups.each do |group|
         group.entries.each do |entry|
           self.send(entry.method.to_sym, entry.path) do
-            JSON.pretty_generate(entry.responses.sample.body)
+            ::JSON.pretty_generate(entry.responses.sample.body)
           end
         end
       end
